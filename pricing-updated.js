@@ -265,7 +265,7 @@ fetch("https://ipapi.co/json/")
             console.log(this.totalPercent);
             this.status =
               this.oldPercent > this.totalPercent ? "decreasing" : "increasing";
-            sliderValue = Math.max(1, Math.min(99, this.totalPercent));
+            sliderValue = Math.max(1, Math.min(50, this.totalPercent));
             changeValue(sliderValue, this.status);
             this.oldPercent = this.totalPercent;
           }
