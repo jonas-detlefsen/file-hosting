@@ -253,41 +253,36 @@ fetch("https://ipapi.co/json/")
       updateSlider(angle) {
         if (angle >= 248 || angle <= 118) {
           this.totalPercent = Math.round(this.calculateTotalPercent(angle));
-          let dashOffset = 2800 - 18 * this.totalPercent;
+          // Adjust the calculation for dashOffset to maintain visual consistency
+          let dashOffset = 2800 - 36 * this.totalPercent;
           this.maskCircle.setAttribute(
             "stroke-dashoffset",
             dashOffset.toString(),
           );
           this.dot1.style.transform = `rotate(${angle}deg)`;
-          //console.log(angle);
-
+    
           if (this.totalPercent !== this.oldPercent) {
-            console.log(this.totalPercent);
             this.status =
               this.oldPercent > this.totalPercent ? "decreasing" : "increasing";
-            sliderValue = Math.max(1, Math.min(50, this.totalPercent));
+            // Scale the percent directly to a max of 50
+            sliderValue = Math.max(1, Math.min(50, this.totalPercent / 2)); // Adjust the division factor to scale correctly
             changeValue(sliderValue, this.status);
             this.oldPercent = this.totalPercent;
           }
         }
       }
 
-      calculateTotalPercent(angle) {
-        let leftPercent, rightPercent;
-        if (angle >= 248) {
-          let percentage = Math.ceil(
-            this.calculatePercentage(-angle, -364, -248),
-          );
-          leftPercent = percentage / 2;
-          rightPercent = 0;
-        } else if (angle <= 118) {
-          let percentage = Math.ceil(this.calculatePercentage(angle, 118, 0));
-          rightPercent = percentage / 2;
-          leftPercent = 50;
-        }
-        return leftPercent + rightPercent;
-      }
 
+      calculateTotalPercent(angle) {
+    // Correctly calculate total percent based on the full range of motion
+    let totalPercent;
+    if (angle >= 248) {
+      totalPercent = ((angle - 248) / (360 - 248 + 118)) * 100;
+    } else { // angle <= 118
+      totalPercent = ((angle + (360 - 248)) / (360 - 248 + 118)) * 100;
+    }
+    return totalPercent; // This now correctly maps the angle to a percentage of the full range
+  }
       calculatePercentage(currentValue, minValue, maxValue) {
         return (1 - (currentValue - minValue) / (maxValue - minValue)) * 100;
       }
