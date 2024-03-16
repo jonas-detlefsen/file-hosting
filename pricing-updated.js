@@ -34,7 +34,7 @@ fetch("https://ipapi.co/json/")
         region_5: { USD: 639, EUR: 589, GBP: 499, keyDecrease: -20 },
     };
     
-    const keys = [1, 3, 5, 10, 20, 35, 50, 75, 99]; // Defined keys
+    const keys = [1, 3, 5, 10, 20, 35, 50]; // Defined keys
   
 
     const prices = keys.map(key => {
