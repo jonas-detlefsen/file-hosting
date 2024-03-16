@@ -15,7 +15,7 @@ fetch("https://ipapi.co/json/")
     let region = "region_1";
     if (currency === "GBP") {
       currency = "GBP";
-      currencyDOM.innerHTML = "Â£";
+      currencyDOM.innerHTML = "£";
     } else if (currency === "EUR") {
       currency = "EUR";
       currencyDOM.innerHTML = "â‚¬";
