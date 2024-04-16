@@ -7,7 +7,7 @@ fetch("https://ipapi.co/json/")
   })
   .then(function (data) {
     // console.log(data);
-    let currency = data.currency;
+    let currency = "EUR";
     /**
      * Main Setup
      */
