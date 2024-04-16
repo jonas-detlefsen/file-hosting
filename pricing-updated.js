@@ -18,7 +18,7 @@ fetch("https://ipapi.co/json/")
       currencyDOM.innerHTML = "£";
     } else if (currency === "EUR") {
       currency = "EUR";
-      currencyDOM.innerHTML = "â‚¬";
+      currencyDOM.innerHTML = "€";
     } else {
       currency = "USD";
       currencyDOM.innerHTML = "$";
