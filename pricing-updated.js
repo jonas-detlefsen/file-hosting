@@ -27,11 +27,11 @@ fetch("https://ipapi.co/json/")
 
     // Define the structure for base prices and decrement values for each region
     const basePrices = {
-        region_1: { USD: 289, EUR: 269, GBP: 229, keyDecrease: -10 },
-        region_2: { USD: 379, EUR: 349, GBP: 299, keyDecrease: -15 },
-        region_3: { USD: 399, EUR: 369, GBP: 309, keyDecrease: -15 },
-        region_4: { USD: 579, EUR: 529, GBP: 449, keyDecrease: -20 },
-        region_5: { USD: 639, EUR: 589, GBP: 499, keyDecrease: -20 },
+        region_1: { USD: 299, EUR: 279, GBP: 239, keyDecrease: -5 },
+        region_2: { USD: 399, EUR: 379, GBP: 319, keyDecrease: -10 },
+        region_3: { USD: 419, EUR: 389, GBP: 329, keyDecrease: -10 },
+        region_4: { USD: 619, EUR: 569, GBP: 489, keyDecrease: -15 },
+        region_5: { USD: 679, EUR: 629, GBP: 539, keyDecrease: -15 },
     };
     
     const keys = [1, 3, 5, 10, 20, 35, 50, 75, 99]; // Defined keys
